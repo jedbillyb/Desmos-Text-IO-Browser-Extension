@@ -1,65 +1,106 @@
+<div align="center">
+
+<img src="icons/android-chrome-512x512.png" width="128" alt="Desmos Text I/O" />
+
 # Desmos Text Input/Output Tool
 
-A browser extension for importing and exporting Desmos graphs as JSON text.
+**Import and export Desmos graphs as JSON — in one click.**
+
+[![Firefox](https://img.shields.io/badge/Firefox-Add--on-FF7139?style=flat-square&logo=firefox)](https://addons.mozilla.org/en-US/firefox/addon/desmos-text-input-output)
+[![Chrome](https://img.shields.io/badge/Chrome-Web_Store-4285F4?style=flat-square&logo=googlechrome)](https://chromewebstore.google.com/detail/desmos-text-inputoutput-t/hlfkanpboagfaeakfmfbgbmbbfdgmdic)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
+[![Manifest](https://img.shields.io/badge/Manifest-V3-brightgreen?style=flat-square)](./manifest.json)
+
+</div>
+
+---
+
+A browser extension for Chrome and Firefox that lets you export any Desmos graph as raw JSON and import it back — useful for backups, sharing, or building on top of someone else's work.
 
 ## Features
 
-- **Export Graphs**: Save any Desmos graph as JSON text for backup or sharing
-- **Import Graphs**: Load JSON data back into Desmos to recreate graphs
-- **Cross-Browser**: Works on both Chrome and Firefox
-- **Simple Interface**: Easy-to-use popup interface
+- **Export graphs** — Save any Desmos calculator state as JSON with one click, copied straight to clipboard
+- **Import graphs** — Paste JSON into the editor and load it directly into Desmos
+- **Ace editor** — Syntax-highlighted, validated JSON editor built into the popup
+- **Dark mode** — Full dark theme support
+- **Keyboard shortcuts** — Faster workflow without reaching for the mouse
+- **Cross-browser** — Works on both Chrome and Firefox via Manifest V3
+
+---
 
 ## Installation
 
 ### Firefox
-1. Install from [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/desmos-text-input-output)
-2. Or load as temporary add-on for development:
-   - Download the latest release from the [releases page](https://github.com/yourusername/desmos-text-io/releases)
-   - Open Firefox and go to `about:debugging`
-   - Click "This Firefox" → "Load Temporary Add-on"
-   - Select the `manifest.json` file from the downloaded extension
+
+Install from the [Firefox Add-ons store](https://addons.mozilla.org/en-US/firefox/addon/desmos-text-input-output), or load temporarily for development:
+
+1. Download the latest release from the [releases page](https://github.com/jedbillyb/desmos-text-input-output-tool/releases)
+2. Open Firefox and go to `about:debugging`
+3. Click **This Firefox** → **Load Temporary Add-on**
+4. Select `manifest.json` from the downloaded extension folder
 
 ### Chrome
-1. Download the extension from the [Chrome Web Store](https://chrome.google.com/webstore) (coming soon)
-2. Or load as unpacked extension for development:
-   - Go to `chrome://extensions/`
-   - Enable "Developer mode"
-   - Click "Load unpacked" and select the extension directory
+
+Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/desmos-text-inputoutput-t/hlfkanpboagfaeakfmfbgbmbbfdgmdic), or load unpacked for development:
+
+1. Go to `chrome://extensions/`
+2. Enable **Developer mode**
+3. Click **Load unpacked** and select the extension directory
+
+---
 
 ## Usage
 
-1. Navigate to [Desmos](https://www.desmos.com/calculator)
-2. Click the Desmos Text I/O extension icon in your browser toolbar
-3. **To Export**:
-   - Click the "Export" button
-   - The graph's JSON data will be copied to your clipboard
-4. **To Import**:
-   - Paste your JSON data into the text area
-   - Click the "Import" button
-   - The graph will be loaded into Desmos
+1. Navigate to [desmos.com/calculator](https://www.desmos.com/calculator)
+2. Click the extension icon in your browser toolbar
+
+**To export:**
+- Click **Export** — the graph's JSON is copied to your clipboard
+
+**To import:**
+- Paste JSON into the editor
+- Click **Import** — the graph loads into Desmos immediately
+
+---
 
 ## Development
 
-This extension is built with:
+### Stack
+
 - Manifest V3
-- Content scripts for Desmos integration
-- Popup interface for user interaction
+- Ace editor (bundled) for JSON editing with syntax highlighting and validation
+- Content scripts for Desmos page integration
+- `webextension-polyfill` for cross-browser compatibility
 
 ### File Structure
-- `manifest.json` - Extension manifest
-- `popup.html/css/js` - Extension popup interface
-- `content.bundle.js` - Content script for Desmos pages
-- `injected.js` - Script injected into Desmos
-- `ace.bundle.js` - Ace editor for JSON editing
+
+```
+desmos-text-input-output-tool/
+├── icons/                  # Extension icons (16, 32, 48, 64, 128px)
+├── manifest.json           # Extension manifest (V3)
+├── popup.html              # Popup UI
+├── popup.css               # Popup styles
+├── popup.js                # Popup logic
+├── content.bundle.js       # Content script for Desmos pages
+├── injected.js             # Script injected into the Desmos context
+├── ace.bundle.js           # Bundled Ace editor
+└── webextension-polyfill.js
+```
+
+---
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Pull requests are welcome. For larger changes, open an issue first to discuss what you'd like to change.
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT — see [LICENSE](LICENSE) for details.
 
-#
+---
 
-Made with ❤️ by [jedbillyb](https://github.com/jedbillyb)
+<div align="center">
+<sub>MIT © <a href="https://github.com/jedbillyb">jedbillyb</a> · Made with ❤️</sub>
+</div>
